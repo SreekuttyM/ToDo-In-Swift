@@ -13,8 +13,14 @@ final class CoreDataManager {
     private init() { } // Ensures singleton usage
     
     lazy var persistentContainer: NSPersistentContainer = {
+        
         let container = NSPersistentContainer(name: "TodoList") // Replace with your .xcdatamodeld file name
+        container.persistentStoreDescriptions.forEach { storeDesc in
+                  storeDesc.shouldMigrateStoreAutomatically = true
+                  storeDesc.shouldInferMappingModelAutomatically = true
+              }
         container.loadPersistentStores { storeDescription, error in
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -27,7 +33,7 @@ final class CoreDataManager {
     }
     
     func saveContext() {
-        let context = persistentContainer.viewContext
+        let context = self.context
         if context.hasChanges {
             do {
                 try context.save()
@@ -38,6 +44,9 @@ final class CoreDataManager {
             }
         }
     }
+    
+    
+   
     
     
 
