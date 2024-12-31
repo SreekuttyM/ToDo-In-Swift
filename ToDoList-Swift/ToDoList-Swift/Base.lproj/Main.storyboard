@@ -1,24 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create To Do Item View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateToDoItemViewController" id="BYZ-38-t0r" customClass="CreateToDoItemViewController" customModule="ToDoList_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-6r-gnw">
+                                <rect key="frame" x="20" y="109" width="353" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="soZ-xi-pGg"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xOi-6N-drI">
+                                <rect key="frame" x="20" y="163" width="353" height="128"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2TF-xs-utv"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="D3s-Z7-EAL"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLO-yP-0ts">
+                                <rect key="frame" x="20" y="340" width="143" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add Remainder">
+                                    <color key="titleColor" systemColor="systemBrownColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAction_setRemainder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OWM-oo-szH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0x-z0-69m">
+                                <rect key="frame" x="20" y="734" width="353" height="44"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="24"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save "/>
+                                <connections>
+                                    <action selector="btnAction_save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2SY-7P-SDv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuK-l6-7IZ">
+                                <rect key="frame" x="225" y="340" width="148" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add Attachment">
+                                    <color key="titleColor" systemColor="systemBrownColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAction_addAttchment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zc0-Gw-i7C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqW-cB-DoZ">
+                                <rect key="frame" x="118" y="408.66666666666669" width="157" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Choose Category">
+                                    <color key="titleColor" systemColor="systemBrownColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xUM-wE-Qdh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yuK-l6-7IZ" secondAttribute="trailing" constant="20" id="0if-7V-b3E"/>
+                            <constraint firstItem="xOi-6N-drI" firstAttribute="top" secondItem="vYN-6r-gnw" secondAttribute="bottom" constant="20" id="2uL-MT-5wi"/>
+                            <constraint firstItem="jqW-cB-DoZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8KV-cm-YOw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M0x-z0-69m" secondAttribute="trailing" constant="20" id="8wX-Mm-3vT"/>
+                            <constraint firstItem="xOi-6N-drI" firstAttribute="leading" secondItem="vYN-6r-gnw" secondAttribute="leading" id="F4E-8d-Fbb"/>
+                            <constraint firstItem="jqW-cB-DoZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HWR-ZL-6ng"/>
+                            <constraint firstItem="xLO-yP-0ts" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="I9J-Oa-j3B"/>
+                            <constraint firstItem="yuK-l6-7IZ" firstAttribute="centerY" secondItem="xLO-yP-0ts" secondAttribute="centerY" id="O1M-Hm-QAd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vYN-6r-gnw" secondAttribute="trailing" constant="20" id="Q0o-SD-tbq"/>
+                            <constraint firstItem="vYN-6r-gnw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ruy-7W-tW8"/>
+                            <constraint firstItem="xOi-6N-drI" firstAttribute="trailing" secondItem="vYN-6r-gnw" secondAttribute="trailing" id="ZHp-65-lKS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="M0x-z0-69m" secondAttribute="bottom" constant="40" id="hXH-sm-QEH"/>
+                            <constraint firstItem="xLO-yP-0ts" firstAttribute="top" secondItem="xOi-6N-drI" secondAttribute="bottom" constant="49" id="oVv-9p-V7L"/>
+                            <constraint firstItem="M0x-z0-69m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="q8T-Hk-qYl"/>
+                            <constraint firstItem="vYN-6r-gnw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="uKD-8M-bud"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtField_textView" destination="xOi-6N-drI" id="vDr-Ok-e8i"/>
+                        <outlet property="txtField_title" destination="vYN-6r-gnw" id="QRJ-ja-hY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="578" y="-1"/>
+        </scene>
+        <!--To Do List View Controller-->
+        <scene sceneID="oSL-qL-IoR">
+            <objects>
+                <viewController storyboardIdentifier="ToDoListViewController" id="Cc5-0Q-6vR" customClass="ToDoListViewController" customModule="ToDoList_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="541-bl-dz7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eN9-ph-1Bf">
+                                <rect key="frame" x="20" y="79" width="353" height="32"/>
+                                <segments>
+                                    <segment title="Work"/>
+                                    <segment title="Second"/>
+                                    <segment title="Birthday"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControl_category:" destination="Cc5-0Q-6vR" eventType="valueChanged" id="pZt-8h-mDh"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o07-vi-sab">
+                                <rect key="frame" x="20" y="130" width="353" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cc5-0Q-6vR" id="3jZ-3G-5Xs"/>
+                                    <outlet property="delegate" destination="Cc5-0Q-6vR" id="O8K-Qe-Roa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QHX-oq-KZZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eN9-ph-1Bf" firstAttribute="leading" secondItem="QHX-oq-KZZ" secondAttribute="leading" constant="20" id="8b0-Ys-2w8"/>
+                            <constraint firstItem="o07-vi-sab" firstAttribute="leading" secondItem="QHX-oq-KZZ" secondAttribute="leading" constant="20" id="CXp-qc-dY9"/>
+                            <constraint firstItem="QHX-oq-KZZ" firstAttribute="trailing" secondItem="o07-vi-sab" secondAttribute="trailing" constant="20" id="Ol4-Og-ypf"/>
+                            <constraint firstItem="eN9-ph-1Bf" firstAttribute="top" secondItem="QHX-oq-KZZ" secondAttribute="top" constant="20" id="Ou2-Hh-yNI"/>
+                            <constraint firstItem="QHX-oq-KZZ" firstAttribute="trailing" secondItem="eN9-ph-1Bf" secondAttribute="trailing" constant="20" id="dHt-Sl-lgw"/>
+                            <constraint firstItem="QHX-oq-KZZ" firstAttribute="bottom" secondItem="o07-vi-sab" secondAttribute="bottom" constant="20" id="pb1-bU-Htb"/>
+                            <constraint firstItem="o07-vi-sab" firstAttribute="top" secondItem="eN9-ph-1Bf" secondAttribute="bottom" constant="20" id="uRe-48-LI0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tbleView_toDoValues" destination="o07-vi-sab" id="3FU-hQ-JBC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmS-ld-luP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333.58778625954199" y="-1.4084507042253522"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
