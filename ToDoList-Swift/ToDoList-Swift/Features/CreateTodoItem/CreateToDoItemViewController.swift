@@ -8,14 +8,16 @@
 import UIKit
 import Combine
 
-class CreateToDoItemViewController : UIViewController {
+class CreateToDoItemViewController : UIViewController, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var txtField_title: UITextField!
     @IBOutlet weak var txtField_textView: UITextView!
-    
+    @IBOutlet weak var lbl_errorView: UILabel!
+
     var viewModel : CreateTodoViewModel! = CreateTodoViewModel()
     private var cancellables = Set<AnyCancellable>()
-
+    var  remainderDate : Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewBind()
@@ -23,6 +25,9 @@ class CreateToDoItemViewController : UIViewController {
     }
     
     func viewBind() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setRemainderDate(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
+        lbl_errorView.text = ""
         txtField_title.textPublisher()
                     .receive(on: RunLoop.main)
                     .assign(to: \.title, on: viewModel)
@@ -40,11 +45,16 @@ class CreateToDoItemViewController : UIViewController {
     }
     
     @IBAction func btnAction_save(_ sender: Any) {
+        lbl_errorView.text = ""
         if(viewModel.state.isEnteredDetailsValid) {
             let todo = Todo(context:  CoreDataManager.shared.context)
             viewModel.configure(todo: todo)
             CoreDataManager.shared.saveContext()
+                if let date = remainderDate {
+                    scheduleNotification(at: date, body:txtField_textView.text, titles: txtField_title.text ?? "")
+                }
         } else {
+            lbl_errorView.text = "validation failed"
             print("validation failed")
         }
     }
@@ -74,6 +84,42 @@ class CreateToDoItemViewController : UIViewController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
+    
+    
+    func scheduleNotification(at date: Date, body: String, titles:String) {
+            let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute,.second,], from: date)
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+
+            let content = UNMutableNotificationContent()
+            content.title = titles
+            content.body = body
+            content.sound = UNNotificationSound.default
+            content.categoryIdentifier = "todoList"
+
+            let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+
+            //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().add(request) {(error) in
+                if let error = error {
+                    print("Uh oh! We had an error: \(error)")
+                } else {
+                    print("local notification added :\(date)")
+                    DispatchQueue.main.async { [unowned self] in
+                        self.navigationController?.popViewController(animated: false)
+                    }
+                }
+            }
+        }
+    
+    @objc func setRemainderDate(notification:NSNotification) {
+        remainderDate = notification.userInfo?["date"] as? Date
+        
+    }
+    
+    
+
+    
     
    
 }

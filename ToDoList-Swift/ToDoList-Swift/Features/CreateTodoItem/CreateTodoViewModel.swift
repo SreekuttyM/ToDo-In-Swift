@@ -43,7 +43,7 @@ class CreateTodoViewModel  {
     func configure(todo : Todo) {
         todo.title = state.title
         todo.name = state.name
-        todo.date = Date.now
+        todo.date = Date()
         todo.category = state.category
         todo.attachment = state.attachment
     }
