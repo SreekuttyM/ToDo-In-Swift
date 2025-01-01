@@ -8,32 +8,20 @@
 import UIKit
 
 class ToDoListViewController : UIViewController {
-    
     @IBOutlet weak var tbleView_toDoValues: UITableView!
     var array_toDo : [Todo] = []
-    
-    
+    var todoListManager : TodoListManager = TodoListManager()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchToDoList(category: "Work")
     }
     
-    
-    
     func fetchToDoList(category : String) {
-        let request = Todo.createFetchRequest()
-        let context = CoreDataManager.shared.context
-        request.returnsObjectsAsFaults = false
-        let predicate = NSPredicate(format: "category contains[c] %@", category)
-        request.predicate = predicate
-        do {
-            array_toDo = try context.fetch(request)
-            print(array_toDo)
-            DispatchQueue.main.async { [unowned self] in
-                tbleView_toDoValues.reloadData()
-            }
-        } catch {
-            print("Failed to fetch data: \(error)")
+        array_toDo =  todoListManager.fetchToDoList(category: category)
+        print(array_toDo)
+        DispatchQueue.main.async { [unowned self] in
+            tbleView_toDoValues.reloadData()
         }
     }
    

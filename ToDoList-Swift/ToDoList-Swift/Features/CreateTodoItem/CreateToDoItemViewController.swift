@@ -13,6 +13,7 @@ class CreateToDoItemViewController : UIViewController, UNUserNotificationCenterD
     @IBOutlet weak var txtField_title: UITextField!
     @IBOutlet weak var txtField_textView: UITextView!
     @IBOutlet weak var lbl_errorView: UILabel!
+    let todoListManager : TodoListManager = TodoListManager()
 
     var viewModel : CreateTodoViewModel! = CreateTodoViewModel()
     private var cancellables = Set<AnyCancellable>()
@@ -47,12 +48,10 @@ class CreateToDoItemViewController : UIViewController, UNUserNotificationCenterD
     @IBAction func btnAction_save(_ sender: Any) {
         lbl_errorView.text = ""
         if(viewModel.state.isEnteredDetailsValid) {
-            let todo = Todo(context:  CoreDataManager.shared.context)
-            viewModel.configure(todo: todo)
-            CoreDataManager.shared.saveContext()
-                if let date = remainderDate {
-                    scheduleNotification(at: date, body:txtField_textView.text, titles: txtField_title.text ?? "")
-                }
+            todoListManager.createTodoItem(title: viewModel.state.title, name: viewModel.state.name, date: viewModel.state.date, category: viewModel.state.category)
+            if let date = remainderDate {
+                scheduleNotification(at: date, body:txtField_textView.text, titles: txtField_title.text ?? "")
+            }
         } else {
             lbl_errorView.text = "validation failed"
             print("validation failed")
