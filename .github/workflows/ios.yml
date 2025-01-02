@@ -16,5 +16,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Set Default Scheme
         run: |
-             xcodebuild clean build analyze -scheme TodoList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11'
+             xcodebuild clean build analyze -scheme ToDoList-SwiftTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11'
+
      
