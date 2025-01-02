@@ -35,11 +35,11 @@ class TodoListManager {
     
     func createTodoItem(title:String,attachment:Data? = nil,name:String,date:Date,category:String) {
         let todo = Todo(context: self.mainContext)
-        todo.title = todo.title
-        todo.name = todo.name
+        todo.title = title
+        todo.name = name
         todo.date = Date()
-        todo.category = todo.category
-        todo.attachment = todo.attachment
+        todo.category = category
+        todo.attachment = attachment
         if self.mainContext.hasChanges {
             do {
                 try self.mainContext.save()

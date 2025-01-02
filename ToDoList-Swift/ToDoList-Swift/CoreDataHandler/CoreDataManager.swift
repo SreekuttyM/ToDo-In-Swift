@@ -9,12 +9,19 @@ import CoreData
 
 final class CoreDataManager {
     static let shared = CoreDataManager()
-        
+    public static let modelName = "TodoList"
+
     private init() { } // Ensures singleton usage
+    
+    public static let model: NSManagedObjectModel = {
+      // swiftlint:disable force_unwrapping
+      let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
+      return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
     
     lazy var persistentContainer: NSPersistentContainer = {
         
-        let container = NSPersistentContainer(name: "TodoList") // Replace with your .xcdatamodeld file name
+        let container = NSPersistentContainer(name: CoreDataManager.modelName, managedObjectModel: CoreDataManager.model) // Replace with your .xcdatamodeld file name
         container.persistentStoreDescriptions.forEach { storeDesc in
                   storeDesc.shouldMigrateStoreAutomatically = true
                   storeDesc.shouldInferMappingModelAutomatically = true
