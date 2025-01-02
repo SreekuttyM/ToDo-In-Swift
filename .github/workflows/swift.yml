@@ -19,6 +19,6 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_15.4.app
     - name: Run unit tests
-      run: xcodebuild test -workspace ToDoList-Swift.xcworkspace -scheme 'ToDoList-SwiftTests' -destination 'platform=iOS Simulator,name=iPhone 13' 
+      run: xcodebuild test -workspace ToDoList-Swift/ToDoList-Swift.xcworkspace -scheme 'ToDoList-SwiftTests' -destination 'platform=iOS Simulator,name=iPhone 13' 
 
       
