@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D39FDD62D26C3BE00D22081 /* CoreDataTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD52D26C3BE00D22081 /* CoreDataTestManager.swift */; };
+		4D39FDDB2D26CA8800D22081 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD72D26C9BC00D22081 /* Todo+CoreDataClass.swift */; };
+		4D39FDDC2D26CA8C00D22081 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD82D26C9BC00D22081 /* Todo+CoreDataProperties.swift */; };
 		4D67A0192D25B996008D5E6F /* ToDoList_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D67A0182D25B996008D5E6F /* ToDoList_SwiftTests.swift */; };
 		4D67A0202D25BBD5008D5E6F /* TodoListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D67A01F2D25BBD5008D5E6F /* TodoListManager.swift */; };
 		4D6DF8872D22F76D007F105B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DF8862D22F76D007F105B /* AppDelegate.swift */; };
@@ -21,8 +24,6 @@
 		4DB511082D23D8060021B386 /* TextField+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB511072D23D8060021B386 /* TextField+Publisher.swift */; };
 		4DB511102D23E4E80021B386 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5110F2D23E4E80021B386 /* ToDoListViewController.swift */; };
 		4DB511122D2419350021B386 /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB511112D2419350021B386 /* ToDoListTableViewCell.swift */; };
-		4DF3BBDD2D2429E600620292 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3BBDB2D2429E600620292 /* Todo+CoreDataClass.swift */; };
-		4DF3BBDE2D2429E600620292 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3BBDC2D2429E600620292 /* Todo+CoreDataProperties.swift */; };
 		4DF3BBE12D2439C200620292 /* AddRemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3BBE02D2439C200620292 /* AddRemainderViewController.swift */; };
 		4DF3BBE32D24772900620292 /* AddRemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3BBE22D24772900620292 /* AddRemainderViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D39FDD52D26C3BE00D22081 /* CoreDataTestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestManager.swift; sourceTree = "<group>"; };
+		4D39FDD72D26C9BC00D22081 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataClass.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4D39FDD82D26C9BC00D22081 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataProperties.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D67A0162D25B996008D5E6F /* ToDoList-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDoList-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D67A0182D25B996008D5E6F /* ToDoList_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_SwiftTests.swift; sourceTree = "<group>"; };
 		4D67A01F2D25BBD5008D5E6F /* TodoListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListManager.swift; sourceTree = "<group>"; };
@@ -55,8 +59,6 @@
 		4DB511072D23D8060021B386 /* TextField+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Publisher.swift"; sourceTree = "<group>"; };
 		4DB5110F2D23E4E80021B386 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		4DB511112D2419350021B386 /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
-		4DF3BBDB2D2429E600620292 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataClass.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4DF3BBDC2D2429E600620292 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataProperties.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DF3BBE02D2439C200620292 /* AddRemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderViewController.swift; sourceTree = "<group>"; };
 		4DF3BBE22D24772900620292 /* AddRemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 		4D67A0172D25B996008D5E6F /* ToDoList-SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				4D39FDD52D26C3BE00D22081 /* CoreDataTestManager.swift */,
 				4D67A0182D25B996008D5E6F /* ToDoList_SwiftTests.swift */,
 			);
 			path = "ToDoList-SwiftTests";
@@ -90,8 +93,8 @@
 		4D6DF87A2D22F76D007F105B = {
 			isa = PBXGroup;
 			children = (
-				4DF3BBDB2D2429E600620292 /* Todo+CoreDataClass.swift */,
-				4DF3BBDC2D2429E600620292 /* Todo+CoreDataProperties.swift */,
+				4D39FDD72D26C9BC00D22081 /* Todo+CoreDataClass.swift */,
+				4D39FDD82D26C9BC00D22081 /* Todo+CoreDataProperties.swift */,
 				4D6DF8852D22F76D007F105B /* ToDoList-Swift */,
 				4D67A0172D25B996008D5E6F /* ToDoList-SwiftTests */,
 				4D6DF8842D22F76D007F105B /* Products */,
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D39FDD62D26C3BE00D22081 /* CoreDataTestManager.swift in Sources */,
 				4D67A0192D25B996008D5E6F /* ToDoList_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,12 +302,12 @@
 				4DB511062D23D2150021B386 /* CreateTodoViewModel.swift in Sources */,
 				4DB511002D23CC280021B386 /* CreateToDoItemViewController.swift in Sources */,
 				4DB511082D23D8060021B386 /* TextField+Publisher.swift in Sources */,
+				4D39FDDC2D26CA8C00D22081 /* Todo+CoreDataProperties.swift in Sources */,
 				4D6DF8872D22F76D007F105B /* AppDelegate.swift in Sources */,
-				4DF3BBDD2D2429E600620292 /* Todo+CoreDataClass.swift in Sources */,
 				4D67A0202D25BBD5008D5E6F /* TodoListManager.swift in Sources */,
 				4DF3BBE32D24772900620292 /* AddRemainderViewModel.swift in Sources */,
 				4DF3BBE12D2439C200620292 /* AddRemainderViewController.swift in Sources */,
-				4DF3BBDE2D2429E600620292 /* Todo+CoreDataProperties.swift in Sources */,
+				4D39FDDB2D26CA8800D22081 /* Todo+CoreDataClass.swift in Sources */,
 				4D6DF8892D22F76D007F105B /* SceneDelegate.swift in Sources */,
 				4DB510FE2D23BCAA0021B386 /* CoreDataManager.swift in Sources */,
 				4DB511102D23E4E80021B386 /* ToDoListViewController.swift in Sources */,

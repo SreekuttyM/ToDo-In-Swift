@@ -1,8 +1,8 @@
 //
 //  Todo+CoreDataProperties.swift
-//  ToDoList-Swift
+//  ToDoList-SwiftTests
 //
-//  Created by Sreekutty Maya on 31/12/2024.
+//  Created by Sreekutty Maya on 02/01/2025.
 //
 //
 
@@ -16,11 +16,11 @@ extension Todo {
         return NSFetchRequest<Todo>(entityName: "Todo")
     }
 
+    @NSManaged public var attachment: Data?
     @NSManaged public var category: String
+    @NSManaged public var date: Date
     @NSManaged public var name: String
     @NSManaged public var title: String
-    @NSManaged public var date: Date
-    @NSManaged public var attachment: Data?
 
 }
 
