@@ -19,4 +19,4 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_15.4.app
     - name: Run unit tests
-      run: xcodebuild test -scheme ToDoList-SwiftTests -project ToDoList-Swift.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild clean test -project "ToDoList-Swift.xcodeproj" -scheme "ToDoList-SwiftTests" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=17.5"
