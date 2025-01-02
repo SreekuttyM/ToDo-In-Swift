@@ -18,5 +18,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Run tests
-      run: xcodebuild test -workspace ToDoList-Swift.xcworkspace -scheme 'ToDoList-SwiftTests' -destination 'platform=iOS Simulator,name=iPhone 13' 
+      run: xcodebuild test \
+            -scheme 'ToDoList-SwiftTests' \
+            -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.1' 
 
