@@ -15,7 +15,7 @@ final class ToDoList_SwiftTests: XCTestCase {
        override func setUp() {
            super.setUp()
            let coreDataStack = CoreDataTestManager()
-           sut = TodoListManager(mainContext: coreDataStack.context)
+           sut = TodoListManager(coreDataManager: coreDataStack)
        }
 
        override func tearDown() {
@@ -29,13 +29,20 @@ final class ToDoList_SwiftTests: XCTestCase {
         XCTAssertEqual(results.count, 0)
     }
     
-    func test_insertion() {
-        sut.createTodoItem(title: "test22", name: "tiele2", date: Date(), category: "Work")
-        let results = sut.fetchToDoList(category: "Work")
-        XCTAssertEqual(results.last?.name, "tiele2")
-        XCTAssertEqual(results.last?.title, "test22")
-        XCTAssertEqual(results.last?.category, "Work")
-
+    func test_insertOneItem() {
+        sut.createTodoItem(title: "tes3", name: "tiee23", date: Date(), category: "Home")
+        let results = sut.fetchToDoList(category: "Home")
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(results.last?.name, "tiee23")
+        XCTAssertEqual(results.last?.title, "tes3")
+        XCTAssertEqual(results.last?.category, "Home")
+    }
+    
+    func test_insert2Items() {
+        sut.createTodoItem(title: "test111", name: "test1", date: Date(), category: "Home")
+        sut.createTodoItem(title: "tes3", name: "tiee23", date: Date(), category: "Home")
+        let results = sut.fetchToDoList(category: "Home")
+        XCTAssertEqual(results.count, 2)
 
     }
 

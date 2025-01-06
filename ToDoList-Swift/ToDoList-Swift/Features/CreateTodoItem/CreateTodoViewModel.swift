@@ -7,6 +7,7 @@
 import Foundation
 import Combine
 
+@available(iOS 15, *)
 struct CreateTodoItemState {
     var title: String = ""
     var name: String = ""
@@ -16,6 +17,7 @@ struct CreateTodoItemState {
     var isEnteredDetailsValid: Bool = false
 }
 
+@available(iOS 15, *)
 class CreateTodoViewModel  {
     @Published var title: String = ""
     @Published var name: String = ""

@@ -7,11 +7,12 @@
 
 import CoreData
 
-final class CoreDataManager {
-    static let shared = CoreDataManager()
+
+ class CoreDataManager {
+     public init() {
+     }
     public static let modelName = "TodoList"
 
-    private init() { } // Ensures singleton usage
     
     public static let model: NSManagedObjectModel = {
       // swiftlint:disable force_unwrapping

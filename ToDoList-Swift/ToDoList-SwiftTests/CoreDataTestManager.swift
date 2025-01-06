@@ -7,36 +7,29 @@
 
 import Foundation
 import CoreData
-import ToDoList_Swift
+@testable import ToDoList_Swift
 
 
-final class CoreDataTestManager {
-    public static let modelName = "TodoList"
-    
-    
-    public static let model: NSManagedObjectModel = {
-        // swiftlint:disable force_unwrapping
-        let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
-    }()
-    
-    lazy var persistentContainer: NSPersistentContainer = {
+class CoreDataTestManager : CoreDataManager {
+    override init() {
+        super.init()
+        
+        let persistentStoreDescription = NSPersistentStoreDescription()
+        persistentStoreDescription.type = NSInMemoryStoreType
         
         let container = NSPersistentContainer(name: CoreDataTestManager.modelName, managedObjectModel: CoreDataTestManager.model) // Replace with your .xcdatamodeld file name
         container.persistentStoreDescriptions.forEach { storeDesc in
             storeDesc.shouldMigrateStoreAutomatically = true
             storeDesc.shouldInferMappingModelAutomatically = true
         }
+        container.persistentStoreDescriptions = [persistentStoreDescription]
+        
         container.loadPersistentStores { storeDescription, error in
             container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
-        return container
-    }()
-    
-    var context: NSManagedObjectContext {
-        return persistentContainer.viewContext
+        persistentContainer = container
     }
 }

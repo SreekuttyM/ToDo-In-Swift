@@ -13,7 +13,7 @@ class CreateToDoItemViewController : UIViewController, UNUserNotificationCenterD
     @IBOutlet weak var txtField_title: UITextField!
     @IBOutlet weak var txtField_textView: UITextView!
     @IBOutlet weak var lbl_errorView: UILabel!
-    let todoListManager : TodoListManager = TodoListManager()
+    let todoListManager : TodoListManager = TodoListManager(coreDataManager: CoreDataManager())
 
     var viewModel : CreateTodoViewModel! = CreateTodoViewModel()
     private var cancellables = Set<AnyCancellable>()

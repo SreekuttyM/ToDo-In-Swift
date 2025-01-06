@@ -10,7 +10,7 @@ import UIKit
 class ToDoListViewController : UIViewController {
     @IBOutlet weak var tbleView_toDoValues: UITableView!
     var array_toDo : [Todo] = []
-    var todoListManager : TodoListManager = TodoListManager()
+    var todoListManager : TodoListManager = TodoListManager(coreDataManager: CoreDataManager())
    
     override func viewDidLoad() {
         super.viewDidLoad()

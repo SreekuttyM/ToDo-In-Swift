@@ -10,6 +10,7 @@
 		4D39FDD62D26C3BE00D22081 /* CoreDataTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD52D26C3BE00D22081 /* CoreDataTestManager.swift */; };
 		4D39FDDB2D26CA8800D22081 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD72D26C9BC00D22081 /* Todo+CoreDataClass.swift */; };
 		4D39FDDC2D26CA8C00D22081 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D39FDD82D26C9BC00D22081 /* Todo+CoreDataProperties.swift */; };
+		4D4C87B62D2C539400EB10AD /* ToDoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C87B52D2C539400EB10AD /* ToDoRepository.swift */; };
 		4D67A0192D25B996008D5E6F /* ToDoList_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D67A0182D25B996008D5E6F /* ToDoList_SwiftTests.swift */; };
 		4D67A0202D25BBD5008D5E6F /* TodoListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D67A01F2D25BBD5008D5E6F /* TodoListManager.swift */; };
 		4D6DF8872D22F76D007F105B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DF8862D22F76D007F105B /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		4D39FDD52D26C3BE00D22081 /* CoreDataTestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestManager.swift; sourceTree = "<group>"; };
 		4D39FDD72D26C9BC00D22081 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataClass.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D39FDD82D26C9BC00D22081 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Todo+CoreDataProperties.swift"; path = "ToDoList-Swift/CoreDataHandler/CreateTodo/Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4D4C87B52D2C539400EB10AD /* ToDoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRepository.swift; sourceTree = "<group>"; };
 		4D67A0162D25B996008D5E6F /* ToDoList-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDoList-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D67A0182D25B996008D5E6F /* ToDoList_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_SwiftTests.swift; sourceTree = "<group>"; };
 		4D67A01F2D25BBD5008D5E6F /* TodoListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListManager.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				4DB510FF2D23CC280021B386 /* CreateToDoItemViewController.swift */,
 				4DB511052D23D2150021B386 /* CreateTodoViewModel.swift */,
+				4D4C87B52D2C539400EB10AD /* ToDoRepository.swift */,
 			);
 			path = CreateTodoItem;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				4DB511082D23D8060021B386 /* TextField+Publisher.swift in Sources */,
 				4D39FDDC2D26CA8C00D22081 /* Todo+CoreDataProperties.swift in Sources */,
 				4D6DF8872D22F76D007F105B /* AppDelegate.swift in Sources */,
+				4D4C87B62D2C539400EB10AD /* ToDoRepository.swift in Sources */,
 				4D67A0202D25BBD5008D5E6F /* TodoListManager.swift in Sources */,
 				4DF3BBE32D24772900620292 /* AddRemainderViewModel.swift in Sources */,
 				4DF3BBE12D2439C200620292 /* AddRemainderViewController.swift in Sources */,
@@ -355,7 +359,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ToDoList-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -380,7 +384,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ToDoList-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,7 +534,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +568,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

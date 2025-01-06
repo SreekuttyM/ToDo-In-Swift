@@ -9,16 +9,16 @@ import CoreData
 
 
 class TodoListManager {
-    let mainContext: NSManagedObjectContext
+    let coreDataManager: CoreDataManager
   
-    init(mainContext: NSManagedObjectContext = CoreDataManager.shared.context) {
-          self.mainContext = mainContext
+    init(coreDataManager : CoreDataManager) {
+          self.coreDataManager = coreDataManager
     }
     
     
     func fetchToDoList(category : String) -> [Todo] {
         let request = Todo.createFetchRequest()
-        let context = CoreDataManager.shared.context
+        let context = coreDataManager.context
         request.returnsObjectsAsFaults = false
         let predicate = NSPredicate(format: "category contains[c] %@", category)
         request.predicate = predicate
@@ -34,15 +34,15 @@ class TodoListManager {
     
     
     func createTodoItem(title:String,attachment:Data? = nil,name:String,date:Date,category:String) {
-        let todo = Todo(context: self.mainContext)
+        let todo = Todo(context: coreDataManager.context)
         todo.title = title
         todo.name = name
         todo.date = Date()
         todo.category = category
         todo.attachment = attachment
-        if self.mainContext.hasChanges {
+        if coreDataManager.context.hasChanges {
             do {
-                try self.mainContext.save()
+                try coreDataManager.context.save()
                 print("Saved")
             } catch {
                 let nserror = error as NSError
